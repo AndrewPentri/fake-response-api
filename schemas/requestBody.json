@@ -1,0 +1,20 @@
+{
+	"type": "object",
+	"description": "Request data object.",
+	"required": [
+		"method",
+		"body",
+		"uri"
+	],
+	"properties": {	
+		"method": {
+			"$ref": "./method.json"
+		},					
+		"body": {
+			"$ref": "./body.json"
+		},
+		"uri": {
+			"$ref": "./uri.json"
+		}
+	}
+}

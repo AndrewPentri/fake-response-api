@@ -1,0 +1,14 @@
+{
+	"requestsSuccess": {
+		"$ref": "./requestsSuccess.json"
+	},
+	"getRequestSuccess": {
+		"$ref": "./getRequestSuccess.json"
+	},
+	"deleteRequestSuccess": {
+		"$ref": "./deleteRequestSuccess.json"
+	},
+	"addRequestSuccess": {
+		"$ref": "./addRequestSuccess.json"
+	}
+}

@@ -1,0 +1,4 @@
+{	
+	"type": "string",
+	"description": "JSON format answer to client request."
+}

@@ -1,0 +1,24 @@
+{
+	"type": "object",
+	"description": "Detailed inforamtion about the request.",
+	"required": [
+		"id",
+		"method",
+		"body",
+		"uri"
+	],
+	"properties": {
+		"id": {
+			"$ref": "./requestId.json"
+		},
+		"method": {
+			"$ref": "./method.json"
+		},					
+		"body": {
+			"$ref": "./body.json"
+		},
+		"uri": {
+			"$ref": "./uri.json"
+		}
+	}
+}

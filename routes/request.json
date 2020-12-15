@@ -1,0 +1,27 @@
+{	
+	"parameters": [
+		{
+			"$ref": "../parameters/id.json"
+		}
+	],
+	"get": {
+		"operationId": "getRequestById",
+		"summary": "Find request by ID.",
+		"description": "Get data about request by specified ID.\nReturns an object with operation result code and detailed request's information.",
+		"responses": {
+			"200": {
+				"$ref": "../responses/getRequestSuccess.json"
+			}
+		}	
+	},
+	"delete": {
+		"operationId": "deleteRequestById",
+		"summary": "Remove request by ID.",
+		"description": "Delete the request by ID.\nReturns an object with operation result code and deleted request's ID.",
+		"responses": {
+			"200": {
+				"$ref": "../responses/deleteRequestSuccess.json"
+			}
+		}
+	}
+}

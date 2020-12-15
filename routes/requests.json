@@ -1,0 +1,12 @@
+{
+	"get": {
+		"operationId": "getRequests",
+		"description": "Returns an Array of objects existing requests.",
+		"summary": "Find all existing requests.",
+		"responses": {
+			"200": {
+				"$ref": "../responses/requestsSuccess.json"
+			}
+		}	
+	}
+}

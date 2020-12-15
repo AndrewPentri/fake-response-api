@@ -1,0 +1,23 @@
+{
+	"request": {
+		"$ref": "./request.json"
+	},
+	"requestBody": {
+		"$ref": "./requestBody.json"
+	},
+	"method": {
+		"$ref": "./method.json"
+	},
+	"body": {
+		"$ref": "./body.json"
+	},
+	"uri": {
+		"$ref": "./uri.json"
+	},
+	"responseCode": {
+		"$ref": "./responseCode.json"
+	},
+	"requestId": {
+		"$ref": "./requestId.json"
+	}
+}

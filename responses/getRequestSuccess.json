@@ -1,0 +1,21 @@
+{
+	"description": "Request founded.",
+	"content": {
+		"application/json": {
+			"schema": {
+				"type": "object",
+				"required": [
+					"responseCode"
+				],
+				"properties": {
+					"responseCode": {
+						"$ref": "../schemas/responseCode.json"
+					},
+					"data": {
+						"$ref": "../schemas/request.json"
+					}
+				}
+			}
+		}
+	}
+}

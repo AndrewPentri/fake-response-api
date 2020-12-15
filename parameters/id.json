@@ -1,0 +1,9 @@
+{
+	"name": "id",
+	"description": "The number, that identifies the request, which need to get/post/put/delete from app.",
+	"in": "path",
+	"required": true,
+	"schema": {
+		"$ref": "../schemas/requestId.json"	
+	}
+}

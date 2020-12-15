@@ -1,0 +1,246 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "fake-response-api",
+    "description": "An API for fake-response project",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/requests": {
+      "get": {
+        "operationId": "getRequests",
+        "description": "Returns an Array of objects existing requests.",
+        "summary": "Find all existing requests.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/requestsSuccess"
+          }
+        }
+      }
+    },
+    "/request/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/id"
+        }
+      ],
+      "get": {
+        "operationId": "getRequestById",
+        "summary": "Find request by ID.",
+        "description": "Get data about request by specified ID.\nReturns an object with operation result code and detailed request's information.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/getRequestSuccess"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteRequestById",
+        "summary": "Remove request by ID.",
+        "description": "Delete the request by ID.\nReturns an object with operation result code and deleted request's ID.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/deleteRequestSuccess"
+          }
+        }
+      }
+    },
+    "/request/": {
+      "post": {
+        "operationId": "addRequest",
+        "description": "Add new request to DB.\nReturns an object with operation result and request's ID.",
+        "summary": "Create new data about request.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/addRequestSuccess"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/requestBody"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "request": {
+        "type": "object",
+        "description": "Detailed inforamtion about the request.",
+        "required": [
+          "id",
+          "method",
+          "body",
+          "uri"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/requestId"
+          },
+          "method": {
+            "$ref": "#/components/schemas/method"
+          },
+          "body": {
+            "$ref": "#/components/schemas/body"
+          },
+          "uri": {
+            "$ref": "#/components/schemas/uri"
+          }
+        }
+      },
+      "requestBody": {
+        "type": "object",
+        "description": "Request data object.",
+        "required": [
+          "method",
+          "body",
+          "uri"
+        ],
+        "properties": {
+          "method": {
+            "$ref": "#/components/schemas/method"
+          },
+          "body": {
+            "$ref": "#/components/schemas/body"
+          },
+          "uri": {
+            "$ref": "#/components/schemas/uri"
+          }
+        }
+      },
+      "method": {
+        "type": "string",
+        "description": "HTTP method (GET, POST, PUT, DELETE)."
+      },
+      "body": {
+        "type": "string",
+        "description": "JSON format answer to client request."
+      },
+      "uri": {
+        "type": "string",
+        "description": "Simple URI string."
+      },
+      "responseCode": {
+        "type": "integer",
+        "format": "int64",
+        "description": "Number, that describes the operation result."
+      },
+      "requestId": {
+        "type": "integer",
+        "format": "int64",
+        "description": "The number, that identifies the request."
+      }
+    },
+    "parameters": {
+      "id": {
+        "name": "id",
+        "description": "The number, that identifies the request, which need to get/post/put/delete from app.",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/requestId"
+        }
+      }
+    },
+    "responses": {
+      "requestsSuccess": {
+        "description": "Request(s) founded.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "responseCode"
+              ],
+              "properties": {
+                "responseCode": {
+                  "$ref": "#/components/schemas/responseCode"
+                },
+                "data": {
+                  "type": "array",
+                  "description": "Array of request detailed data.",
+                  "items": {
+                    "$ref": "#/components/schemas/request"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "getRequestSuccess": {
+        "description": "Request founded.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "responseCode"
+              ],
+              "properties": {
+                "responseCode": {
+                  "$ref": "#/components/schemas/responseCode"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/request"
+                }
+              }
+            }
+          }
+        }
+      },
+      "deleteRequestSuccess": {
+        "description": "Request successfuly removed.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "responseCode"
+              ],
+              "properties": {
+                "responseCode": {
+                  "$ref": "#/components/schemas/responseCode"
+                },
+                "id": {
+                  "$ref": "#/components/schemas/requestId"
+                }
+              }
+            }
+          }
+        }
+      },
+      "addRequestSuccess": {
+        "description": "Request successfuly added.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "responseCode"
+              ],
+              "properties": {
+                "responseCode": {
+                  "$ref": "#/components/schemas/responseCode"
+                },
+                "id": {
+                  "$ref": "#/components/schemas/requestId"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

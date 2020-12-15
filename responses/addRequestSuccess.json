@@ -1,0 +1,21 @@
+{
+	"description": "Request successfuly added.",
+	"content": {
+		"application/json": {
+			"schema": {
+				"type": "object",
+				"required": [
+					"responseCode"
+				],
+				"properties": {
+					"responseCode": {
+						"$ref": "../schemas/responseCode.json"
+					},
+					"id": {
+						"$ref": "../schemas/requestId.json"
+					}
+				}
+			}
+		}
+	}
+}

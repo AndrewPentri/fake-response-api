@@ -1,0 +1,21 @@
+{
+	"post": {
+		"operationId": "addRequest",
+		"description": "Add new request to DB.\nReturns an object with operation result and request's ID.",
+		"summary": "Create new data about request.",
+		"responses": {
+			"200": {
+				"$ref": "../responses/addRequestSuccess.json"
+			}
+		},
+		"requestBody": {
+			"content": {
+				"application/json": {
+					"schema": {
+						"$ref": "../schemas/requestBody.json"
+					}
+				}
+			}
+		}	
+	}
+}

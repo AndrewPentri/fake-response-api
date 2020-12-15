@@ -1,0 +1,11 @@
+{
+	"/requests": {
+		"$ref": "./requests.json"
+	},
+	"/request/{id}": {
+		"$ref": "./request.json"
+	},
+	"/request/": {
+		"$ref": "./addRequest.json"
+	}
+}
