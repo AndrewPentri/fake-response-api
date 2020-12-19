@@ -1,6 +1,6 @@
 # fake-response-api
 
-## An API for fake-response project.
+An API for fake-response project.
 
 ### In v1.0.0 available:
 
@@ -12,4 +12,4 @@
 
 * Get detailed data about the request;
 
-## Created by `openapi3/swagger` tools.
+Created by `openapi3/swagger` tools.
